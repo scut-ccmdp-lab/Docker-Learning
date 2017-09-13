@@ -14,7 +14,7 @@ func main() {
                         syscall.CLONE_NEWNS | syscall.CLONE_NEWUSER,
     }
     
-    // it is not supported by linux kerner 4.4.0: "fork/exec /bin/sh: invalid argument"
+    // it is not supported by linux kernel 4.4.0: "fork/exec /bin/sh: invalid argument"
     cmd.SysProcAttr.Credential = &syscall.Credential{Uid: uint32(1), Gid: uint32(1)}
     cmd.Stdin = os.Stdin
     cmd.Stdout = os.Stdout

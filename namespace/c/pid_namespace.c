@@ -32,7 +32,7 @@ int container_main(void *args) {
 int main(void) {
     printf("Parent - start a container.\n");
     // 调用clone函数，传入一个函数和栈空间的指针
-    // 启用CLONE_NEWIPC Namespace隔离
+    // 启用CLONE_NEWPID Namespace隔离
     int container_pid = clone(container_main, container_stack + STACK_SIZE, SIGCHLD | CLONE_NEWPID, NULL);
     // 等待子进程结束
     waitpid(container_pid, NULL, 0);

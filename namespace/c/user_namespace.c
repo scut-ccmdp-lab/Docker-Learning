@@ -47,6 +47,7 @@ void set_gid_map(pid_t pid, int inside_id, int outside_id, int len) {
     }
 
     fprintf(mapfd, "%d %d %d", inside_id, outside_id, len);
+    // printf("Success set gid map.\n");
     fclose(mapfd);
 }
 

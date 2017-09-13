@@ -58,8 +58,7 @@ int container_main(void *args) {
     
     char ch;
     close(pipefd[1]);
-    read(pipefd[0], &ch, 1);
-
+    int cnt = read(pipefd[0], &ch, 1);
     execv(container_args[0], container_args);
     printf("Something is wrong!\n");
     return -1;
@@ -79,7 +78,7 @@ int main(void) {
 
     set_uid_map(container_pid, 0, uid, 1);
     set_gid_map(container_pid, 0, gid, 1);
-
+    // sleep(2);
     printf("Parent: user/group mapping done.\n");
 
     close(pipefd[1]);

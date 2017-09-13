@@ -58,7 +58,7 @@ int container_main(void *args) {
     
     char ch;
     close(pipefd[1]);
-    int cnt = read(pipefd[0], &ch, 1);
+    read(pipefd[0], &ch, 1);
     execv(container_args[0], container_args);
     printf("Something is wrong!\n");
     return -1;
